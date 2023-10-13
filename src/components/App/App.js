@@ -1,13 +1,15 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import movieData from '../../mockMovies';
+import Header from '../Header/Header';
+import MainContentWrapper from '../MainContentWrapper/MainContentWrapper';
 
 function App() {
   const [fulldata, setFullData] = useState({});
   const [filteredData, setFilteredData] = useState([]);
 
 useEffect(() => {
-  setFullData(movieData);
+  setFullData(movieData.movies);
 
   const homepageData = movieData.movies.map((movie) => {
     return {
@@ -22,9 +24,8 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <header>
-        <h1>Rancid Tomatillos</h1>
-        </header>
+     <Header />
+     <MainContentWrapper/>
       
     </div>
   );
