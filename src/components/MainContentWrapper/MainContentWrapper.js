@@ -1,7 +1,5 @@
 function MainContentWrapper() {
-  return (
-    <div>movie cards go here!</div>
-  )
+  return <div></div>;
 }
 
-export default MainContentWrapper
+export default MainContentWrapper;

@@ -1,15 +1,13 @@
 function getAllMovies() {
-  fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies').then(
+  return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies').then(
     (response) => {
-      if (response.ok) {
-        response.json();
-      } else {
+      if (!response.ok) {
         throw new Error('Something went wrong. Please try again.');
       }
+      return response.json();
     }
   );
 }
-// .then(data => )
-// .catch(error => console.log(error.message))
+// console.log('fetchedData', data)
 
 export { getAllMovies };
