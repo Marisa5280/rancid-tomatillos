@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import MainContentWrapper from "../MainContentWrapper/MainContentWrapper";
 import MovieCards from "../MovieCards/MovieCards";
-// import SingleMovieDetails from "../SingleMovieDetails/SingleMovieDetails";
 import { getAllMovies, getIndividualMovie } from "../../apiCalls/apiCalls";
 import SingleMovieDetails from "../SingleMovieDetails/SingleMovieDetails";
 
@@ -12,8 +11,7 @@ function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [singleMovieDetail, setSingleMovieDetail] = useState();
   const [selectedMovie, setSelectedMovie] = useState(null);
-
-  // setSelectedMovieData(fullData.movies.find(movie => movie.id === selectedMovie.id));
+  const [error, setError] = useState('');
 
   useEffect(() => {
     getAllMovies().then((data) => {
@@ -28,12 +26,16 @@ function App() {
           };
         })
       );
+    }).catch((error) => {
+      console.log(error.message);
+      setError(
+        "Oops! Something went wrong! Please try again in a couple minutes."
+      );
     });
-    // .catch((error) => console.log(error.message));
   }, []);
 
   return (
-    <div className="App">
+    <main className="App">
       <Header />
       <MainContentWrapper />
       {!selectedMovie && (
@@ -49,10 +51,13 @@ function App() {
           singleMovieDetail={singleMovieDetail}
           setSingleMovieDetail={setSingleMovieDetail}
           getIndividualMovie={getIndividualMovie}
+          setError={setError}
         />
       )}
-    </div>
+      {error && <h2>{error}</h2>}
+    </main>
   );
 }
 
+// export {setError};
 export default App;
