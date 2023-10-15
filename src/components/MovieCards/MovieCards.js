@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
+
 function MovieCards({ filteredData, setSelectedMovie }) {
 
   function getDetails(event) {
-    // event.preventDefault();
+    event.preventDefault();
     setSelectedMovie(event.target.id)
     console.log('click:', event.target.id)
   }
@@ -21,3 +23,8 @@ function MovieCards({ filteredData, setSelectedMovie }) {
 }
 
 export default MovieCards;
+
+MovieCards.propTypes = {
+  filteredData: PropTypes.array.isRequired,
+  setSelectedMovie: PropTypes.func.isRequired
+}

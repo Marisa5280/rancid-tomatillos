@@ -7,16 +7,18 @@ function SingleMovieDetails({
   singleMovieDetail,
   setSingleMovieDetail,
   getIndividualMovie,
+  setError
 }) {
   useEffect(() => {
-    // console.log('selectedMovie:', selectedMovie)
     selectedMovie &&
       getIndividualMovie(selectedMovie)
         .then((data) => setSingleMovieDetail(data.movie))
-        .catch((error) =>
-          console.error('Error fetching individual movie:', error)
-        );
-    console.log('selectedMovieDetail:', singleMovieDetail);
+        .catch((error) => {
+          console.log(error.message);
+          setError(
+            "Oops! Something went wrong! Please try again in a couple minutes."
+          );
+        });
   }, [selectedMovie]);
 
   const allMovieView = (event) => {
@@ -49,5 +51,10 @@ function SingleMovieDetails({
 export default SingleMovieDetails;
 
 SingleMovieDetails.propTypes = {
-  selectedMovie: PropTypes.string.isRequired
+  selectedMovie: PropTypes.string.isRequired,
+  setSingleMovieDetail: PropTypes.func.isRequired,
+  singleMovieDetail: PropTypes.object,
+  setSelectedMovie: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
+  getIndividualMovie: PropTypes.func.isRequired
 }
