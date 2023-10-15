@@ -51,5 +51,10 @@ function SingleMovieDetails({
 export default SingleMovieDetails;
 
 SingleMovieDetails.propTypes = {
-  selectedMovie: PropTypes.string.isRequired
+  selectedMovie: PropTypes.string.isRequired,
+  setSingleMovieDetail: PropTypes.func.isRequired,
+  singleMovieDetail: PropTypes.object,
+  setSelectedMovie: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
+  getIndividualMovie: PropTypes.func.isRequired
 }
