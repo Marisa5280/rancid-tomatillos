@@ -1,30 +1,51 @@
+import './MovieCards.css';
 import PropTypes from 'prop-types';
 
-function MovieCards({ filteredData, setSelectedMovie }) {
+// function MovieCards({ filteredData, setSelectedMovie }) {
+//   function getDetails(event) {
+//     event.preventDefault();
+//     setSelectedMovie(event.target.id);
+//     console.log('click:', event.target.id);
+//   }
 
-  function getDetails(event) {
-    event.preventDefault();
-    setSelectedMovie(event.target.id)
-    console.log('click:', event.target.id)
+function MovieCards({ filteredData, setSelectedMovie }) {
+  function getDetails(movieId) {
+    setSelectedMovie(movieId);
+    // console.log('click:', movieId);
   }
 
   return filteredData.map((movie) => {
     return (
-      <div 
-        id={`${movie.id}`} 
-        key={`${movie.id}`}
-        onClick={ event => getDetails(event)}
+      <div className="card-container"
+      key={`${movie.id}`}
+      onClick={() => getDetails(movie.id)}
       >
-        <img src={movie.image} height="25%" width="25%" />
-        <h2>{`${movie.title}`}</h2>
+        <div className="thumbnail">
+          <img src={movie.image} className="movie-img" />
+          <h2>{`${movie.title}`}</h2>
+        </div>
       </div>
-    );
-  });
+    )
+  })
+
+  // return filteredData.map((movie) => {
+  //   return (
+  //     <div
+  //       className="thumbnail"
+  //       id={`${movie.id}`}
+  //       key={`${movie.id}`}
+  //       onClick={(event) => getDetails(event)}
+  //     >
+  //       <img src={movie.image} className="movie-img" />
+  //       <h2>{`${movie.title}`}</h2>
+  //     </div>
+  //   );
+  // });
 }
 
 export default MovieCards;
 
 MovieCards.propTypes = {
   filteredData: PropTypes.array.isRequired,
-  setSelectedMovie: PropTypes.func.isRequired
-}
+  setSelectedMovie: PropTypes.func.isRequired,
+};
