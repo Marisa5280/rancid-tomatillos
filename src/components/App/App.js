@@ -39,7 +39,7 @@ function App() {
     <main className="App">
       <Header />
       <BreadCrumb />
-      <MainContentWrapper />
+      <MainContentWrapper>
       {!selectedMovie && (
         <MovieCards
           filteredData={filteredData}
@@ -57,6 +57,7 @@ function App() {
         />
       )}
       {error && <h2>{error}</h2>}
+      </MainContentWrapper>
     </main>
   );
 }

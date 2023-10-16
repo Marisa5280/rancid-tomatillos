@@ -1,8 +1,5 @@
 p {
     display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
-    /* background: radial-gradient(circle, rgb(141, 193, 63, 1) 0%, rgba(133, 123, 229, 1) 100%); */
     background-color: #C8DC2E;
     width: 100vw;
     margin: 0;
