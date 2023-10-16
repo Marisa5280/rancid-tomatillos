@@ -1,3 +1,44 @@
-.overview-container {
-    padding: 0 1em;
+
+.overview-container,
+h2 {
+    color: #8DC13F;
 }
+
+/* h3 {
+    display: flex;
+    align-self: center;
+} */
+
+.details {
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: bold;
+    padding: 1em;
+    /* padding: .1rem 0 .1rem .75rem; */
+    background-color: #C8DC2E;
+    /* max-width: 50.2em; */
+    min-width: 20em;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+/* display: flex;
+background-color: #C8DC2E;
+width: 100vw;
+margin: 0;
+padding: .1rem 0 .1rem .75rem; */
+
+.overview-container {
+    padding: 1em;
+    max-width: 50em;
+    margin: 0 auto;
+    text-align: left;
+    border: 2px solid #8DC13F;
+}
+
+@media (min-width: 40em) {
+    .split {
+        display: flex;
+        gap: 2em;
+      }
+  }

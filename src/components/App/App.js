@@ -22,7 +22,7 @@ function App() {
           return {
             id: movie.id,
             title: movie.title,
-            image: movie.backdrop_path,
+            image: movie.poster_path,
             key: movie.id,
           };
         })

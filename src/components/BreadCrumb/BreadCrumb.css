@@ -1,7 +1,7 @@
 p {
     display: flex;
     background-color: #C8DC2E;
-    width: 100vw;
+    width: 100%;
     margin: 0;
     padding: .1rem 0 .1rem .75rem;
     border-bottom: 6px solid #1B1464

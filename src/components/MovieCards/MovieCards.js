@@ -22,7 +22,7 @@ function MovieCards({ filteredData, setSelectedMovie }) {
       >
         <div className="thumbnail">
           <img src={movie.image} className="movie-img" />
-          <h2>{`${movie.title}`}</h2>
+          <h2 className='sr-only'>{`${movie.title}`}</h2>
         </div>
       </div>
     )
