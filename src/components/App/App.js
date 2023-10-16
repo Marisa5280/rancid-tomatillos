@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Header from "../Header/Header";
+import BreadCrumb from "../BreadCrumb/BreadCrumb";
 import MainContentWrapper from "../MainContentWrapper/MainContentWrapper";
 import MovieCards from "../MovieCards/MovieCards";
 import { getAllMovies, getIndividualMovie } from "../../apiCalls/apiCalls";
@@ -37,6 +38,7 @@ function App() {
   return (
     <main className="App">
       <Header />
+      <BreadCrumb />
       <MainContentWrapper />
       {!selectedMovie && (
         <MovieCards
