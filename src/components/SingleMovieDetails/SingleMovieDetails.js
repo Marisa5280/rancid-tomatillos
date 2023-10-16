@@ -33,13 +33,15 @@ function SingleMovieDetails({
           <button onClick={(event) => allMovieView(event)}>Home</button>
           <img src={singleMovieDetail.backdrop_path} height="50%" width="50%" />
           <h2>{`${singleMovieDetail.title}`}</h2>
-          <div>
+          <div className='details split'>
             <div>{`Rating: ${singleMovieDetail.average_rating}`}</div>
             <div>{`Genre: ${singleMovieDetail.genres}`}</div>
             <div>{`Runtime: ${singleMovieDetail.runtime} minutes`}</div>
             <div>{`Release Date: ${singleMovieDetail.release_date}`}</div>
           </div>
-          <div>{`Overview: ${singleMovieDetail.overview}`}</div>
+          <div className='overview-container'>
+            <h3>Overview:</h3>
+            {`${singleMovieDetail.overview}`}</div>
         </div>
       ) : (
         <p>Loading...</p>
