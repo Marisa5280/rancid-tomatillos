@@ -39,7 +39,7 @@ function App() {
     <main className="App">
       <Header />
       <BreadCrumb />
-      <MainContentWrapper>
+      <MainContentWrapper selectedMovie={selectedMovie}>
       {!selectedMovie && (
         <MovieCards
           filteredData={filteredData}

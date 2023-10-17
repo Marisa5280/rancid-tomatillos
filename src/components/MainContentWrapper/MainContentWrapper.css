@@ -11,11 +11,33 @@
     text-align: center;
   }
 
-  
+  .instructions {
+    background-color: #1B1464;
+    color: #C8DC2E;
+    font-weight: bolder;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    padding: .5em 0 0 0
+  }
 
-  @media (min-width: 40em) {
+  /* @media (min-width: 40em) {
     .split {
         display: flex;
         gap: 2em;
       }
+  } */
+
+  @media (min-width: 48.2em) {
+    .instructions {
+      font-size: 3rem;
+    }
   }
+
+  @media (min-width: 90em) {
+    .instructions {
+      font-size: 4rem;
+    }
+  }
+
+  

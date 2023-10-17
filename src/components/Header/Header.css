@@ -2,7 +2,6 @@
 header {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     background: radial-gradient(circle, rgb(141, 193, 63, 1) 0%, rgba(133, 123, 229, 1) 100%);
     width: 100vw;
     margin-left: 0;
@@ -11,7 +10,7 @@ header {
   }
 
   .logo-image {
-    width: 75%;
+    max-width: 75%;
     padding: 1em;
   }
 
