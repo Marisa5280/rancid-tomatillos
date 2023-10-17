@@ -2,7 +2,7 @@ import './MainContentWrapper.css';
 
 function MainContentWrapper({ children, selectedMovie }) {
   return (
-    <div>
+    <div className='main-content-wrapper'>
       {selectedMovie === null ? (
         <p className="instructions">Select a movie to view details</p>
       ) : (
