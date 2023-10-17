@@ -45,12 +45,6 @@ function SingleMovieDetails({
             <div>{`| Runtime: ${singleMovieDetail.runtime} minutes | `}</div>
             <div>{`| Release Date: ${singleMovieDetail.release_date} |`}</div>
           </div>
-          {/* <div className="details">
-            <p>{`Rating: ${singleMovieDetail.average_rating} |`}</p>
-            <p>{`Genre: | ${singleMovieDetail.genres} |`}</p>
-            <p>{`Runtime: | ${singleMovieDetail.runtime} minutes |`}</p>
-            <p>{`Release Date: ${singleMovieDetail.release_date}`}</p>
-          </div> */}
           <div className="overview-container">
             <h3>Overview:</h3>
             <p className="movie-description">{`${singleMovieDetail.overview}`}</p>
