@@ -1,44 +1,68 @@
-
-.overview-container,
-h2 {
+h2,
+h3 {
     color: #8DC13F;
 }
 
-/* h3 {
-    display: flex;
-    align-self: center;
-} */
+h2 {
+    font-size: 3rem;
+    margin: .2em, 0;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
 
 .details {
-    width: 100vw;
+    max-width: 75%;
     display: flex;
     justify-content: space-evenly;
     font-weight: bold;
-    padding: 1em;
-    /* padding: .1rem 0 .1rem .75rem; */
-    background-color: #C8DC2E;
-    /* max-width: 50.2em; */
-    min-width: 20em;
+    background-color: #8DC13F;
     margin: 0 auto;
-    flex-wrap: wrap;
 }
-/* display: flex;
-background-color: #C8DC2E;
-width: 100vw;
-margin: 0;
-padding: .1rem 0 .1rem .75rem; */
 
 .overview-container {
+    background-color: #1B1464;
     padding: 1em;
-    max-width: 50em;
+    max-width: 72.7%;
     margin: 0 auto;
     text-align: left;
     border: 2px solid #8DC13F;
 }
 
-@media (min-width: 40em) {
-    .split {
-        display: flex;
-        gap: 2em;
-      }
+.img-size {
+    max-width: 75%;
+    border: 6px solid #8DC13F;
+    margin: .75em;
+}
+
+.movie-description {
+    background-color: #1B1464;
+    color: #8DC13F;
+    font-size: 1rem;
+}
+
+  @media (min-width: 48.2em) {
+    h2 {
+      font-size: 4rem;
+    }
+
+    h3 {
+        font-size: 2.5rem;
+    }
+
+    .movie-description {
+        font-size: 1.5rem;
+    }
+
+  }
+
+  @media (min-width: 90em) {
+    h2 {
+        font-size: 5rem;
+    }
+    h3 {
+        font-size: 3rem;
+    }
+
   }

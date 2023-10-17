@@ -1,9 +1,13 @@
 import './MainContentWrapper.css';
 
-function MainContentWrapper({ children }) {
+function MainContentWrapper({ children, selectedMovie }) {
   return (
     <div>
-      <p className="instructions">Select a movie to view details</p>
+      {selectedMovie === null ? (
+        <p className="instructions">Select a movie to view details</p>
+      ) : (
+        <p className="instructions"></p>
+      )}
       <section className="all-movies">{children}</section>
     </div>
   );
