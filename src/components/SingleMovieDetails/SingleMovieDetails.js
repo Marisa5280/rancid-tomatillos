@@ -40,10 +40,10 @@ function SingleMovieDetails({
             alt=""
           />
           <div className="details">
-            <div>{`| Rating: ${singleMovieDetail.average_rating} | `}</div>
-            <div>{`| Genre: ${singleMovieDetail.genres} | `}</div>
-            <div>{`| Runtime: ${singleMovieDetail.runtime} minutes | `}</div>
-            <div>{`| Release Date: ${singleMovieDetail.release_date} |`}</div>
+            <div className="details-rating">{`| Rating: ${singleMovieDetail.average_rating} | `}</div>
+            <div className="details-genre">{`| Genre: ${singleMovieDetail.genres} | `}</div>
+            <div className="details-runtime">{`| Runtime: ${singleMovieDetail.runtime} minutes | `}</div>
+            <div className="details-release-date">{`| Release Date: ${singleMovieDetail.release_date} |`}</div>
           </div>
           <div className="overview-container">
             <h3>Overview:</h3>
@@ -52,7 +52,8 @@ function SingleMovieDetails({
         </div>
       ) : (
         <p>Loading...</p>
-      )}
+      )
+      }
     </div>
   );
 }
