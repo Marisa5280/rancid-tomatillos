@@ -28,7 +28,7 @@ function SingleMovieDetails({
 
   return (
     <div>
-      {singleMovieDetail ? (
+      {/* {singleMovieDetail ? ( */}
         <div id={{ selectedMovie }}>
           <button onClick={(event) => allMovieView(event)}>Home</button>
           <h2>{`${singleMovieDetail.title}`}</h2>
@@ -50,10 +50,10 @@ function SingleMovieDetails({
             <p className="movie-description">{`${singleMovieDetail.overview}`}</p>
           </div>
         </div>
-      ) : (
+      {/* ) : ( */}
         <p>Loading...</p>
-      )
-      }
+      {/* )
+      } */}
     </div>
   );
 }
@@ -61,12 +61,10 @@ function SingleMovieDetails({
 export default SingleMovieDetails;
 
 SingleMovieDetails.propTypes = {
-  selectedMovie: PropTypes.number.isRequired,
+  selectedMovie: PropTypes.number,
   setSingleMovieDetail: PropTypes.func.isRequired,
   singleMovieDetail: PropTypes.object,
   setSelectedMovie: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
   getIndividualMovie: PropTypes.func.isRequired,
 };
-
-//note from Jan: I got an error that our selectedMovie PropType was expecting a string, but it was instead a number, so I changed this to number
