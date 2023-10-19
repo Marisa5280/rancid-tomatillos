@@ -1,10 +1,15 @@
 function getAllMovies() {
-  return fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies").then(
-    (response) => {
-      if (!response.ok) {
-        throw new Error("Something went wrong. Please try again.");
+  return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies').then(
+    (res) => {
+      if (!res.ok && res.status >= 500) {
+        throw new Error(
+          'Something Went Wrong On The Server. Please try again.'
+        );
       }
-      return response.json();
+      if (!res.ok && res.status >= 400 && res.status < 500) {
+        throw new Error('Oops! Something went wrong. Please try again.');
+      }
+      return res.json();
     }
   );
 }
@@ -13,8 +18,11 @@ function getIndividualMovie(id) {
   return fetch(
     `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
   ).then((res) => {
-    if (!res.ok) {
-      throw new Error("Something Went Wrong On The Server. Please try again.");
+    if (!res.ok && res.status >= 500) {
+      throw new Error('Something Went Wrong On The Server. Please try again.');
+    }
+    if (!res.ok && res.status >= 400 && res.status < 500) {
+      throw new Error('Oops! Something went wrong. Please try again.');
     }
     return res.json();
   });
