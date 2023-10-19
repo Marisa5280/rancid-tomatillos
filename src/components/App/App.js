@@ -1,17 +1,19 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { getAllMovies, getIndividualMovie } from "../../apiCalls/apiCalls";
 import Header from "../Header/Header";
 import BreadCrumb from "../BreadCrumb/BreadCrumb";
 import MainContentWrapper from "../MainContentWrapper/MainContentWrapper";
-import { getAllMovies, getIndividualMovie } from "../../apiCalls/apiCalls";
 import SingleMovieDetails from "../SingleMovieDetails/SingleMovieDetails";
-import { Routes, Route } from "react-router-dom";
+import Error from "../Error/Error";
 
 function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [singleMovieDetail, setSingleMovieDetail] = useState();
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllMovies()
@@ -30,6 +32,7 @@ function App() {
       })
       .catch((error) => {
         console.log(error.message);
+        navigate('/error')
         setError(
           "Oops! Something went wrong! Please try again in a couple minutes."
         );
@@ -61,9 +64,11 @@ function App() {
               setSingleMovieDetail={setSingleMovieDetail}
               getIndividualMovie={getIndividualMovie}
               setError={setError}
+              error={error}
             />
           }
         />
+        <Route path="/error" element={<Error error={error} />} />
       </Routes>
       {error && <h2>{error}</h2>}
     </main>

@@ -10,7 +10,7 @@ function SingleMovieDetails({
   singleMovieDetail,
   setSingleMovieDetail,
   getIndividualMovie,
-  setError,
+  setError
 }) {
   let { id } = useParams();
   useEffect(() => {
