@@ -53,12 +53,12 @@ function App() {
 
         
       </Routes>
-      {!selectedMovie && (
+      {/* {!selectedMovie && (
         <MovieCards
           filteredData={filteredData}
           setSelectedMovie={setSelectedMovie}
         />
-      )}
+      )} */}
       {/* {selectedMovie && (
         <SingleMovieDetails
           selectedMovie={selectedMovie}
