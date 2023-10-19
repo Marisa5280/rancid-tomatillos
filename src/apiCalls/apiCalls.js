@@ -13,7 +13,6 @@ function getIndividualMovie(id) {
   return fetch(
     `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
   ).then((res) => {
-    console.log("single res", res);
     if (!res.ok) {
       throw new Error("Something Went Wrong On The Server. Please try again.");
     }
