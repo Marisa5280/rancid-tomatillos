@@ -6,6 +6,7 @@ import MainContentWrapper from "../MainContentWrapper/MainContentWrapper";
 import MovieCards from "../MovieCards/MovieCards";
 import { getAllMovies, getIndividualMovie } from "../../apiCalls/apiCalls";
 import SingleMovieDetails from "../SingleMovieDetails/SingleMovieDetails";
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [fullData, setFullData] = useState([]);
@@ -39,14 +40,26 @@ function App() {
     <main className="App">
       <Header />
       <BreadCrumb />
-      <MainContentWrapper selectedMovie={selectedMovie}>
-      {!selectedMovie && (
+      <Routes>
+        <Route path="/" element={<MainContentWrapper selectedMovie={selectedMovie} filteredData={filteredData} setSelectedMovie={setSelectedMovie} />} />
+        <Route path="/:id" element={<SingleMovieDetails
+          selectedMovie={selectedMovie}
+          setSelectedMovie={setSelectedMovie}
+          singleMovieDetail={singleMovieDetail}
+          setSingleMovieDetail={setSingleMovieDetail}
+          getIndividualMovie={getIndividualMovie}
+          setError={setError}
+        />} />
+
+        
+      </Routes>
+      {/* {!selectedMovie && (
         <MovieCards
           filteredData={filteredData}
           setSelectedMovie={setSelectedMovie}
         />
-      )}
-      {selectedMovie && (
+      )} */}
+      {/* {selectedMovie && (
         <SingleMovieDetails
           selectedMovie={selectedMovie}
           setSelectedMovie={setSelectedMovie}
@@ -55,9 +68,8 @@ function App() {
           getIndividualMovie={getIndividualMovie}
           setError={setError}
         />
-      )}
+      )} */}
       {error && <h2>{error}</h2>}
-      </MainContentWrapper>
     </main>
   );
 }

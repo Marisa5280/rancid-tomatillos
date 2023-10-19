@@ -1,6 +1,8 @@
 import './MainContentWrapper.css';
+import MovieCards from '../MovieCards/MovieCards'
 
-function MainContentWrapper({ children, selectedMovie }) {
+
+function MainContentWrapper({ selectedMovie, filteredData, setSelectedMovie }) {
   return (
     <div className='main-content-wrapper'>
       {selectedMovie === null ? (
@@ -8,7 +10,7 @@ function MainContentWrapper({ children, selectedMovie }) {
       ) : (
         <p className="instructions"></p>
       )}
-      <section className="all-movies">{children}</section>
+      <section className="all-movies">{<MovieCards filteredData={filteredData} setSelectedMovie={setSelectedMovie}/>}</section>
     </div>
   );
 }

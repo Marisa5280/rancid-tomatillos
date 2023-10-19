@@ -1,6 +1,7 @@
 import './SingleMovieDetails.css';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 function SingleMovieDetails({
   selectedMovie,
@@ -10,9 +11,11 @@ function SingleMovieDetails({
   getIndividualMovie,
   setError,
 }) {
+
+  let {id} = useParams(); 
   useEffect(() => {
     selectedMovie &&
-      getIndividualMovie(selectedMovie)
+      getIndividualMovie(id)
         .then((data) => setSingleMovieDetail(data.movie))
         .catch((error) => {
           console.log(error.message);
@@ -20,7 +23,7 @@ function SingleMovieDetails({
             'Oops! Something went wrong! Please try again in a couple minutes.'
           );
         });
-  }, [selectedMovie]);
+  }, []);
 
   const allMovieView = (event) => {
     setSelectedMovie(null);
@@ -28,14 +31,13 @@ function SingleMovieDetails({
 
   return (
     <div>
-      {singleMovieDetail ? (
+      {singleMovieDetail && (
         <div id={{ selectedMovie }}>
           <button onClick={(event) => allMovieView(event)}>Home</button>
+          {console.log("DETAILS", singleMovieDetail )}
           <h2>{`${singleMovieDetail.title}`}</h2>
           <img
             src={singleMovieDetail.backdrop_path}
-            // height="50%"
-            // width="50%"
             className="img-size"
             alt=""
           />
@@ -50,23 +52,18 @@ function SingleMovieDetails({
             <p className="movie-description">{`${singleMovieDetail.overview}`}</p>
           </div>
         </div>
-      ) : (
+)}
         <p>Loading...</p>
-      )
-      }
-    </div>
-  );
+      
+    </div>)
 }
-
 export default SingleMovieDetails;
 
 SingleMovieDetails.propTypes = {
-  selectedMovie: PropTypes.number.isRequired,
+  selectedMovie: PropTypes.number,
   setSingleMovieDetail: PropTypes.func.isRequired,
   singleMovieDetail: PropTypes.object,
   setSelectedMovie: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
   getIndividualMovie: PropTypes.func.isRequired,
 };
-
-//note from Jan: I got an error that our selectedMovie PropType was expecting a string, but it was instead a number, so I changed this to number
