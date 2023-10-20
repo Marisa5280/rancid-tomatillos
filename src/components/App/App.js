@@ -34,7 +34,7 @@ function App() {
         console.log(error.message);
         navigate('/error')
         setError(
-          "Oops! Something went wrong! Please try again in a couple minutes."
+          "Oops! Something went wrong! Please try again in a couple of minutes."
         );
       });
   }, []);

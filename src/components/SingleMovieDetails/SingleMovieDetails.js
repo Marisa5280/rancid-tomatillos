@@ -14,13 +14,13 @@ function SingleMovieDetails({
 }) {
   let { id } = useParams();
   useEffect(() => {
-    selectedMovie &&
+    id &&
       getIndividualMovie(id)
         .then((data) => setSingleMovieDetail(data.movie))
         .catch((error) => {
           console.log(error.message);
           setError(
-            "Oops! Something went wrong! Please try again in a couple minutes."
+            "Oops! Something went wrong! Please try again in a couple of minutes."
           );
         });
   }, []);
@@ -30,7 +30,7 @@ function SingleMovieDetails({
   };
 
   return (
-    singleMovieDetail && (
+    singleMovieDetail && singleMovieDetail.id === Number(id) && (
       <div id={{ selectedMovie }}>
         <Link to={'/'} onClick={(event) => clickHandler(event)}>Home</Link>
         <h2>{`${singleMovieDetail.title}`}</h2>
