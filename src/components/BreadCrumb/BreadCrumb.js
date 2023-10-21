@@ -1,5 +1,6 @@
 import './BreadCrumb.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function BreadCrumb({ setSelectedMovie }) {
   const clickHandler = (event) => {
