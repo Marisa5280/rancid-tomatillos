@@ -3,7 +3,7 @@
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 50px;
+    grid-gap: 2rem;
   }
 
   .instructions {
