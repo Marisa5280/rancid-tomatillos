@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { getAllMovies, getIndividualMovie } from '../../apiCalls/apiCalls';
+import { getAllMovies, getIndividualMovie, getTrailer } from '../../apiCalls/apiCalls';
 import Header from '../Header/Header';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import MainContentWrapper from '../MainContentWrapper/MainContentWrapper';
@@ -66,6 +66,7 @@ function App() {
               singleMovieDetail={singleMovieDetail}
               setSingleMovieDetail={setSingleMovieDetail}
               getIndividualMovie={getIndividualMovie}
+              getTrailer={getTrailer}
               setError={setError}
               error={error}
             />

@@ -1,5 +1,5 @@
 import './SingleMovieDetails.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 
@@ -8,8 +8,12 @@ function SingleMovieDetails({
   singleMovieDetail,
   setSingleMovieDetail,
   getIndividualMovie,
+  getTrailer,
   setError,
 }) {
+
+  const [trailerVideos, setTrailerVideos] = useState([]);
+
   let { id } = useParams();
   useEffect(() => {
     id &&
@@ -21,6 +25,15 @@ function SingleMovieDetails({
             'Oops! Something went wrong! Please try again in a couple of minutes.'
           );
         });
+      getTrailer(id)
+        .then((data) => setTrailerVideos(data.videos))
+        .catch((error) => {
+          console.log(error.message);
+          setError(
+            'Oops! Something went wrong! Please try again in a couple of minutes.'
+          );
+        });
+
   }, []);
 
   return (
@@ -44,6 +57,9 @@ function SingleMovieDetails({
           </div>
         </div>
         <div className="trailer">
+          {
+            <div></div>
+          }
           <p>This is where the trailer will go</p>
           {/* <p>{`${singleMovieDetail.id.videos.id}`}</p> */}
         </div>
@@ -65,4 +81,5 @@ SingleMovieDetails.propTypes = {
   setSelectedMovie: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
   getIndividualMovie: PropTypes.func.isRequired,
+  getTrailer:PropTypes.func.isRequired
 };
