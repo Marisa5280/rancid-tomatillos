@@ -42,7 +42,7 @@ function App() {
   return (
     <main className="App">
       <Header />
-      <BreadCrumb />
+      <BreadCrumb setSelectedMovie={setSelectedMovie} />
       <Routes>
         <Route
           path="/"

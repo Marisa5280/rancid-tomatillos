@@ -1,16 +1,14 @@
-import "./SingleMovieDetails.css";
-import { useEffect } from "react";
-import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import './SingleMovieDetails.css';
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 function SingleMovieDetails({
   selectedMovie,
-  setSelectedMovie,
   singleMovieDetail,
   setSingleMovieDetail,
   getIndividualMovie,
-  setError
+  setError,
 }) {
   let { id } = useParams();
   useEffect(() => {
@@ -20,19 +18,15 @@ function SingleMovieDetails({
         .catch((error) => {
           console.log(error.message);
           setError(
-            "Oops! Something went wrong! Please try again in a couple of minutes."
+            'Oops! Something went wrong! Please try again in a couple of minutes.'
           );
         });
   }, []);
 
-  const clickHandler = (event) => {
-    setSelectedMovie(null);
-  };
-
   return (
-    singleMovieDetail && singleMovieDetail.id === Number(id) && (
+    singleMovieDetail &&
+    singleMovieDetail.id === Number(id) && (
       <div id={{ selectedMovie }}>
-        <Link to={'/'} onClick={(event) => clickHandler(event)}>Home</Link>
         <h2>{`${singleMovieDetail.title}`}</h2>
         <img
           src={singleMovieDetail.backdrop_path}
@@ -57,7 +51,6 @@ export default SingleMovieDetails;
 
 SingleMovieDetails.propTypes = {
   selectedMovie: PropTypes.number,
-  setSingleMovieDetail: PropTypes.func.isRequired,
   singleMovieDetail: PropTypes.object,
   setSelectedMovie: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
