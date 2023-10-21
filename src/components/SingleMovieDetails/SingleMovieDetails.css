@@ -139,6 +139,10 @@ h3 {
         grid-area: trailer;
         color: #8DC13F; 
     }
+
+    iframe {
+        max-width: 100%;
+    }
     
     .overview-container {
         background-color: #1B1464;
