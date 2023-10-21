@@ -1,6 +1,6 @@
-import "./MovieCards.css";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import './MovieCards.css';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function MovieCards({ filteredData, setSelectedMovie }) {
   function handleClick(movieId) {

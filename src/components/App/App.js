@@ -1,18 +1,18 @@
-import "./App.css";
-import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { getAllMovies, getIndividualMovie } from "../../apiCalls/apiCalls";
-import Header from "../Header/Header";
-import BreadCrumb from "../BreadCrumb/BreadCrumb";
-import MainContentWrapper from "../MainContentWrapper/MainContentWrapper";
-import SingleMovieDetails from "../SingleMovieDetails/SingleMovieDetails";
-import Error from "../Error/Error";
+import './App.css';
+import { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { getAllMovies, getIndividualMovie } from '../../apiCalls/apiCalls';
+import Header from '../Header/Header';
+import BreadCrumb from '../BreadCrumb/BreadCrumb';
+import MainContentWrapper from '../MainContentWrapper/MainContentWrapper';
+import SingleMovieDetails from '../SingleMovieDetails/SingleMovieDetails';
+import Error from '../Error/Error';
 
 function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [singleMovieDetail, setSingleMovieDetail] = useState();
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,9 +32,9 @@ function App() {
       })
       .catch((error) => {
         console.log(error.message);
-        navigate('/error')
+        navigate('/error');
         setError(
-          "Oops! Something went wrong! Please try again in a couple of minutes."
+          'Oops! Something went wrong! Please try again in a couple of minutes.'
         );
       });
   }, []);
@@ -42,7 +42,10 @@ function App() {
   return (
     <main className="App">
       <Header />
-      <BreadCrumb setSelectedMovie={setSelectedMovie} />
+      <BreadCrumb
+        selectedMovie={selectedMovie}
+        setSelectedMovie={setSelectedMovie}
+      />
       <Routes>
         <Route
           path="/"
