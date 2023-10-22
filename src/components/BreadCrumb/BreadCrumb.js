@@ -1,20 +1,19 @@
-import './BreadCrumb.css';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import "./BreadCrumb.css";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function BreadCrumb({ singleMovieDetail, setSingleMovieDetail }) {
-
   const clickHandler = (event) => {
-    setSingleMovieDetail(null)
+    setSingleMovieDetail(null);
   };
 
   return (
     <div className="bread-crumb">
       {singleMovieDetail && (
-        <Link to={'/'} onClick={(event) => clickHandler(event)}>
+        <Link to={"/"} onClick={(event) => clickHandler(event)}>
           Return to Home Page
         </Link>
-      )}      
+      )}
     </div>
   );
 }

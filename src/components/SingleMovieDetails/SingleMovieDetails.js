@@ -78,12 +78,13 @@ function SingleMovieDetails({
           )}
         </div>
         <div className="overview-container">
-          <div>
+          <div className='overview-div'>
             <h3>Overview:</h3>
             <p className="movie-description">{`${singleMovieDetail.overview}`}</p>
           </div>
         </div>
       </section>
+      
     )
   );
 }

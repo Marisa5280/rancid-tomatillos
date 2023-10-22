@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     getAllMovies()
       .then((data) => {
-        // setSelectedMovie(null);
+        setSelectedMovie(null);
         setFilteredData(
           data.movies.map((movie) => {
             return {
