@@ -6,6 +6,7 @@ function MovieCards({ filteredData, setSelectedMovie }) {
   function handleClick(movieId) {
     setSelectedMovie(movieId);
   }
+
   return filteredData.map((movie) => {
     return (
       <Link
