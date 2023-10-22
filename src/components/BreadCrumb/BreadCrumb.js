@@ -22,6 +22,6 @@ function BreadCrumb({ selectedMovie, setSelectedMovie }) {
 export default BreadCrumb;
 
 BreadCrumb.propTypes = {
-  selectedMovie: PropTypes.number.isRequired,
-  setSingleMovieDetail: PropTypes.func.isRequired,
+  selectedMovie: PropTypes.number,
+  setSingleMovieDetail: PropTypes.func,
 };

@@ -7,6 +7,13 @@ function MovieCards({ filteredData, setSelectedMovie }) {
     setSelectedMovie(movieId);
   }
 
+// function handleKeyDown(movieId, event) { 
+//   if (event.key === 'Enter' || event.key === ' ') {
+//     setSelectedMovie(movieId)
+//   }
+// }
+
+
   return filteredData.map((movie) => {
     return (
       <Link
