@@ -36,22 +36,14 @@ function SingleMovieDetails({
 
   const selectVideo = (trailerVideos) => {
     let selectedVideo = `https://www.youtube-nocookie.com/embed/${trailerVideos[0].key}`;
+    console.log('SELECTED VIDEO', selectedVideo);
     return selectedVideo;
   };
 
-  const formatDate = (dateData) => {
-    const formatOptions = {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    };
-    const formattedDate = new Date(dateData).toLocaleDateString(
-      undefined,
-      formatOptions
-    );
-
-    return formattedDate;
-  };
+  const formatDate = (inputDate) => {
+    const dateParts = inputDate.split("-");
+    return `${dateParts[1]}-${dateParts[2]}-${dateParts[0]}`;
+  }
 
   return (
     singleMovieDetail &&
@@ -67,14 +59,10 @@ function SingleMovieDetails({
         </div>
         <div className="details">
           <div className="inner-details">
-            <p className="details-rating">{`Rating: ${singleMovieDetail.average_rating}`}</p>
-            <p className="details-runtime">{`Runtime: ${singleMovieDetail.runtime} minutes`}</p>
-            <p className="details-release-date">{`Release Date: ${formatDate(
-              singleMovieDetail.release_date
-            )}`}</p>
-             <p className="details-genre">{`Genre: ${singleMovieDetail.genres.join(
-              ', '
-            )}`}</p>
+            <div className="details-rating">{`Rating: ${singleMovieDetail.average_rating.toFixed(1)}`}</div>
+            <div className="details-genre">{`Genre: ${singleMovieDetail.genres.join(" / ")}`}</div>
+            <div className="details-runtime">{`Runtime: ${singleMovieDetail.runtime} minutes`}</div>
+            <div className="details-release-date">{`Release Date: ${formatDate(singleMovieDetail.release_date)}`}</div>
           </div>
         </div>
         <div className="trailer">
@@ -99,8 +87,20 @@ function SingleMovieDetails({
 export default SingleMovieDetails;
 
 SingleMovieDetails.propTypes = {
-  selectedMovie: PropTypes.number,
-  singleMovieDetail: PropTypes.object,
+  selectedMovie: PropTypes.number.isRequired,
+  singleMovieDetail: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    backdrop_path: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+    budget: PropTypes.number.isRequired,
+    revenue: PropTypes.number.isRequired,
+    runtime: PropTypes.number.isRequired,
+    tagline: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired}),
   setSelectedMovie: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
   getIndividualMovie: PropTypes.func.isRequired,

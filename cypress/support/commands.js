@@ -10,7 +10,9 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add("tab", () => {
+  cy.focused().trigger("keydown", { keyCode: 9, which: 9 });
+});
 //
 //
 // -- This is a child command --
