@@ -40,6 +40,11 @@ function SingleMovieDetails({
     return selectedVideo;
   };
 
+  const formatDate = (inputDate) => {
+    const dateParts = inputDate.split("-");
+    return `${dateParts[1]}-${dateParts[2]}-${dateParts[0]}`;
+  }
+
   return (
     singleMovieDetail &&
     singleMovieDetail.id === Number(id) && (
@@ -54,10 +59,10 @@ function SingleMovieDetails({
         </div>
         <div className="details">
           <div className="inner-details">
-            <div className="details-rating">{`Rating: ${singleMovieDetail.average_rating}`}</div>
-            <div className="details-genre">{`Genre: ${singleMovieDetail.genres}`}</div>
+            <div className="details-rating">{`Rating: ${singleMovieDetail.average_rating.toFixed(1)}`}</div>
+            <div className="details-genre">{`Genre: ${singleMovieDetail.genres.join(" / ")}`}</div>
             <div className="details-runtime">{`Runtime: ${singleMovieDetail.runtime} minutes`}</div>
-            <div className="details-release-date">{`Release Date: ${singleMovieDetail.release_date}`}</div>
+            <div className="details-release-date">{`Release Date: ${formatDate(singleMovieDetail.release_date)}`}</div>
           </div>
         </div>
         <div className="trailer">
