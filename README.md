@@ -45,8 +45,6 @@ Rancid Tomatillos is a React Application that retrieves data from an API about p
 [Rancid Tomatillos Deployed App](https://rancid-tomatillos-mj.vercel.app/)
 
 ## Context:
-The IdeaBox project was assigned in the fourth week of Mod 1, and the alloted time to complete this project was about 5 days. The project was assigned as a group project, with groups consisting of 3 or 4 members. All members were front end, Mod 1 students at Turing. 
-
 Rancid Tomatillos is a front end development project of the Turing School of Software and Design. It is assigned during Module 3 of the program. Students are paired together on teams and are given 1.5 weeks to complete the requirements for a minimally viable product. 
 
 ## Contributors:
