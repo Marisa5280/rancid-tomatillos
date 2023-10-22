@@ -19,15 +19,18 @@ describe('home page on load', () => {
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270", {
       fixture: "singleMovieData.json"
     })
+    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270/videos", {
+      fixture: "videosData.json"
+    })
     cy.url('http://localhost:3000/').should('include', '/')
     .get('.main-content-wrapper')
     .get(".card-container").first().click()
     .get('.img-size').should('have.attr', 'src', "https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg")
     .get('h2').should('contain', "Black Adam")
     .get('.details-rating').should('contain', "4")
-    // cy.get('.details-genre').should('contain', "Action,Fantasy,Science Fiction"); fix later when array is destructured
+    cy.get('.details-genre').should('contain', "Action / Fantasy / Science Fiction")
     .get('.details-runtime').should('contain', "Runtime: 125 minutes")
-    // cy.get('.details-release-date').should('contain', "Release Date: 2022-10-19"); fix late when date is correctly displayed
+    cy.get('.details-release-date').should('contain', "Release Date: 10-19-2022")
     .get('h3').should('contain', "Overview:")
     .get('.movie-description').should('contain', "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.")
     .url('http://localhost:3000/436270').should('include', '/436270')
