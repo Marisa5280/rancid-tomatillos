@@ -39,7 +39,6 @@ function SingleMovieDetails({
 
   const selectVideo = (trailerVideos) => {
     let selectedVideo = `https://www.youtube-nocookie.com/embed/${trailerVideos[0].key}`;
-    console.log('SELECTED VIDEO', selectedVideo);
     return selectedVideo;
   };
 
