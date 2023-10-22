@@ -76,7 +76,6 @@ function App() {
         />
         <Route path="/error" element={<Error error={error} />} />
       </Routes>
-      {/* {error && <h2>{error}</h2>} */}
     </main>
   );
 }

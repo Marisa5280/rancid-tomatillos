@@ -1,7 +1,7 @@
 import './SingleMovieDetails.css';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function SingleMovieDetails({
   selectedMovie,
@@ -12,6 +12,7 @@ function SingleMovieDetails({
   setError,
 }) {
   const [trailerVideos, setTrailerVideos] = useState([]);
+  const navigate = useNavigate();
 
   let { id } = useParams();
   useEffect(() => {
@@ -20,6 +21,7 @@ function SingleMovieDetails({
         .then((data) => setSingleMovieDetail(data.movie))
         .catch((error) => {
           console.log(error.message);
+          navigate('/error');
           setError(
             'Oops! Something went wrong! Please try again in a couple of minutes.'
           );
@@ -28,8 +30,9 @@ function SingleMovieDetails({
       .then((data) => setTrailerVideos(data.videos))
       .catch((error) => {
         console.log(error.message);
+        navigate('/error');
         setError(
-          'Oops! Something went wrong! Please try again in a couple of minutes.'
+          'Oops! Please try again in a couple of minutes.'
         );
       });
   }, []);
@@ -87,7 +90,7 @@ function SingleMovieDetails({
 export default SingleMovieDetails;
 
 SingleMovieDetails.propTypes = {
-  selectedMovie: PropTypes.number.isRequired,
+  selectedMovie: PropTypes.number,
   singleMovieDetail: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,

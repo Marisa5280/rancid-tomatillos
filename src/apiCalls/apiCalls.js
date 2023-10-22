@@ -18,12 +18,13 @@ function getIndividualMovie(id) {
   return fetch(
     `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
   ).then((res) => {
-    if (!res.ok && res.status >= 500) {
+    // if (!res.ok && res.status >= 500 || !res.ok && res.status >= 400 && res.status < 500) {
+    if ((!res.ok && res.status >= 400 && res.status < 500) || (!res.ok && res.status >= 500)) {
       throw new Error('Something Went Wrong On The Server. Please try again.');
     }
-    if (!res.ok && res.status >= 400 && res.status < 500) {
-      throw new Error('Oops! Something went wrong. Please try again.');
-    }
+    // if (!res.ok && res.status >= 400 && res.status < 500) {
+    //   throw new Error('Oops! Something went wrong. Please try again.');
+    // }
     return res.json();
   });
 }
