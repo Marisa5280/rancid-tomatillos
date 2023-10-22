@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     getAllMovies()
       .then((data) => {
-        // setSelectedMovie(null);
+        setSelectedMovie(null);
         setFilteredData(
           data.movies.map((movie) => {
             return {
@@ -76,7 +76,6 @@ function App() {
         />
         <Route path="/error" element={<Error error={error} />} />
       </Routes>
-      {/* {error && <h2>{error}</h2>} */}
     </main>
   );
 }

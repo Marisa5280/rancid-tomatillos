@@ -27,11 +27,6 @@ function MovieCards({ filteredData, setSelectedMovie }) {
 export default MovieCards;
 
 MovieCards.propTypes = {
-  filteredData: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    key: PropTypes.number.isRequired,
-  }),
+  filteredData: PropTypes.array.isRequired,
   setSelectedMovie: PropTypes.func.isRequired,
 };
