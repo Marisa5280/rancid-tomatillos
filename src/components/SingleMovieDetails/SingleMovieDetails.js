@@ -35,9 +35,22 @@ function SingleMovieDetails({
   }, []);
 
   const selectVideo = (trailerVideos) => {
-    let selectedVideo = `https://www.youtube.com/embed/${trailerVideos[0].key}`;
-    console.log('SELECTED VIDEO', selectedVideo);
+    let selectedVideo = `https://www.youtube-nocookie.com/embed/${trailerVideos[0].key}`;
     return selectedVideo;
+  };
+
+  const formatDate = (dateData) => {
+    const formatOptions = {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    };
+    const formattedDate = new Date(dateData).toLocaleDateString(
+      undefined,
+      formatOptions
+    );
+
+    return formattedDate;
   };
 
   return (
@@ -54,10 +67,14 @@ function SingleMovieDetails({
         </div>
         <div className="details">
           <div className="inner-details">
-            <div className="details-rating">{`Rating: ${singleMovieDetail.average_rating}`}</div>
-            <div className="details-genre">{`Genre: ${singleMovieDetail.genres}`}</div>
-            <div className="details-runtime">{`Runtime: ${singleMovieDetail.runtime} minutes`}</div>
-            <div className="details-release-date">{`Release Date: ${singleMovieDetail.release_date}`}</div>
+            <p className="details-rating">{`Rating: ${singleMovieDetail.average_rating}`}</p>
+            <p className="details-runtime">{`Runtime: ${singleMovieDetail.runtime} minutes`}</p>
+            <p className="details-release-date">{`Release Date: ${formatDate(
+              singleMovieDetail.release_date
+            )}`}</p>
+             <p className="details-genre">{`Genre: ${singleMovieDetail.genres.join(
+              ', '
+            )}`}</p>
           </div>
         </div>
         <div className="trailer">
@@ -82,7 +99,7 @@ function SingleMovieDetails({
 export default SingleMovieDetails;
 
 SingleMovieDetails.propTypes = {
-  selectedMovie: PropTypes.number.isRequired,
+  selectedMovie: PropTypes.number,
   singleMovieDetail: PropTypes.object,
   setSelectedMovie: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
