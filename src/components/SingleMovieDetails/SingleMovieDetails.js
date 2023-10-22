@@ -67,14 +67,14 @@ function SingleMovieDetails({
         </div>
         <div className="details">
           <div className="inner-details">
-            <div className="details-rating">{`Rating: ${singleMovieDetail.average_rating}`}</div>
-            <div className="details-genre">{`Genre: ${singleMovieDetail.genres.join(
-              ', '
-            )}`}</div>
-            <div className="details-runtime">{`Runtime: ${singleMovieDetail.runtime} minutes`}</div>
-            <div className="details-release-date">{`Release Date: ${formatDate(
+            <p className="details-rating">{`Rating: ${singleMovieDetail.average_rating}`}</p>
+            <p className="details-runtime">{`Runtime: ${singleMovieDetail.runtime} minutes`}</p>
+            <p className="details-release-date">{`Release Date: ${formatDate(
               singleMovieDetail.release_date
-            )}`}</div>
+            )}`}</p>
+             <p className="details-genre">{`Genre: ${singleMovieDetail.genres.join(
+              ', '
+            )}`}</p>
           </div>
         </div>
         <div className="trailer">
