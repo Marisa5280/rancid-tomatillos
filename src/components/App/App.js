@@ -11,14 +11,14 @@ import Error from '../Error/Error';
 function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [singleMovieDetail, setSingleMovieDetail] = useState();
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState();
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     getAllMovies()
       .then((data) => {
-        setSelectedMovie(null);
+        // setSelectedMovie(null);
         setFilteredData(
           data.movies.map((movie) => {
             return {
@@ -45,6 +45,8 @@ function App() {
       <BreadCrumb
         selectedMovie={selectedMovie}
         setSelectedMovie={setSelectedMovie}
+        singleMovieDetail={singleMovieDetail}
+        setSingleMovieDetail={setSingleMovieDetail}
       />
       <Routes>
         <Route
@@ -74,7 +76,7 @@ function App() {
         />
         <Route path="/error" element={<Error error={error} />} />
       </Routes>
-      {error && <h2>{error}</h2>}
+      {/* {error && <h2>{error}</h2>} */}
     </main>
   );
 }
