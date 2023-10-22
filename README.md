@@ -63,7 +63,7 @@ The learning goals of this project included:
 ### Wins
 
 - React, Router, and Cypress are new to us - this is part of what we are learning. We feel like this was a win for us because we were able to work together to research solutions and implement them.
-- We considered the user experience from the beginning of our design, including users with various types of disabilities. We made design decisions based on user needs. For example, knowing that screen reader users navigate by heading, we made the decision to add heading level 2 text to each thumbnail that listed the title of the movie. This will allow a blind user to pull up a heading list and search for a movie from that list.
+- We considered the user experience from the beginning of our design, including users with various types of disabilities. We made design decisions based on user needs. For example, knowing that screen reader users navigate by heading, we made the decision to add heading level 2 text to each thumbnail that listed the title of the movie. These headings have a screen reader only class so they are only visible to screen reader users. This will allow a blind user to pull up a heading list and search for a movie from that list.
 - We worked very well together as a team. We each had different backgrounds and different levels of understanding. We took the time to teach each other and to talk through our code. We did a lot of paired programming and problem-solving together.
 - We learned a lot about Cypress from our Choose Your Own Adventure portion of the project. Here are some examples of what we learned:
     - how to make a custon command:
